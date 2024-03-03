@@ -45,7 +45,7 @@ const userSchema = new Schema<TUser>(
     },
     image: {
       type: String,
-      required: false,
+      required: true,
     },
     password: {
       type: String,
@@ -69,7 +69,7 @@ const userSchema = new Schema<TUser>(
 
 // hashingPassword
 userSchema.pre('save', async function (next) {
-  this.password = await bcrypt.hash(this.password, config.round_salt as string);
+  this.password = await bcrypt.hash(this.password, Number(config.round_salt));
   next();
 });
 

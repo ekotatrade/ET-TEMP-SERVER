@@ -16,7 +16,7 @@ export const globalErrorHandler: ErrorRequestHandler = (
   let statusCode = 500;
   let message = 'Something went wrong!';
   let error;
-
+  console.log(err);
   // handle errors
   if (err instanceof ZodError) {
     const handleError = handleZodValidationError(err);
