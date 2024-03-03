@@ -1,5 +1,7 @@
 import cors from 'cors';
 import express, { Application, Request, Response } from 'express';
+import { globalErrorHandler } from './middlewares/globalErrorHandeler';
+import router from './routes';
 
 const app: Application = express();
 
@@ -14,5 +16,11 @@ app.get('/api/v1/health', (req: Request, res: Response) => {
     status: 'Your server is very very health.',
   });
 });
+
+// app routes
+app.use('/api/v1', router);
+
+//global error handler
+app.use(globalErrorHandler);
 
 export default app;

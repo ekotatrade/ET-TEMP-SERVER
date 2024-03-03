@@ -10,6 +10,7 @@ export type TUser = {
   email: string;
   password: string;
   needPasswordChange: boolean;
-  dob: Date;
+  dob: string;
+  gender: 'male' | 'female';
   role: 'superAdmin' | 'admin';
 };

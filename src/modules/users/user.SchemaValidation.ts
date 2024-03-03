@@ -9,8 +9,9 @@ const userSchemaValidation = z.object({
     name: userNameSchemaValidation,
     phone: z.string(),
     email: z.string().email(),
-    dob: z.date(),
+    dob: z.string(),
     role: z.enum(['superAdmin', 'admin']).default('admin'),
+    password: z.string(),
   }),
 });
 
